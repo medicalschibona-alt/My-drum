@@ -1,0 +1,143 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #1b1b2f, #0f0f1a);
+  color: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-top: 30px;
+}
+
+
+.drum-container {
+  display: grid;
+  grid-template-areas:
+    "w w a s"
+    "d j k i";
+
+  gap: 20px;
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+
+.drum {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 20px;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  box-shadow: 5px 5px 15px #0a0a14,
+              -5px -5px 15px #34345e;
+
+  transition: all 0.15s ease;
+}
+
+.d{
+  color: black;
+}
+.w { grid-area: w; }
+.a { grid-area: a; }
+.s { grid-area: s; }
+.d { grid-area: d; }
+.j { grid-area: j; }
+.k { grid-area: k; }
+.i { grid-area: i; }
+
+
+.drum:hover {
+  transform: scale(1.05);
+  border-radius: 20px;
+}
+
+
+.pressed {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+@media (min-width: 1200px) {
+  .drum-container {
+    width: 1100px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+  }
+
+  .drum {
+    border-radius: 25px;
+  }
+    @media (min-width: 1200px) {
+  .drum-container {
+    width: 1100px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+  }
+  
+  .drum {
+    border-radius: 25px;
+  }
+}
+}
+
+
+@media (max-width: 768px) {
+  .drum-container {
+    grid-template-areas:
+      "w a s"
+      "d j k"
+      "i i i";
+
+    max-width: 500px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+  .drum-container {
+    grid-template-areas:
+      "w a"
+      "s d"
+      "j k"
+      "i i";
+
+    max-width: 350px;
+    gap: 12px;
+  }
+
+  .drum {
+    font-size: 20px;
+    border-radius: 15px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
+.w { background-image: url("/Screenshot_20260430-004221_1.jpg"); }
+.a { background-image: url("/Screenshot_20260430-003105_1.jpg"); }
+.s { background-image: url("/Screenshot_20260430-003159_1.jpg"); }
+.d { background-image: url("/Screenshot_20260430-003352_1.jpg"); }
+.j { background-image: url("/Screenshot_20260430-003453_1.jpg"); }
+.k { background-image: url("/Screenshot_20260430-011833.jpg"); }
+.i { background-image: url("/Screenshot_20260430-003541_1.jpg"); }
+

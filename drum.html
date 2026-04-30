@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drum Kit</title>
+  <link rel="stylesheet" href="drum.css"/>
+</head>
+
+<body>
+
+  <h1 class="title">🥁 Let’s Have Fun!</h1>
+
+  <div class="drum-container">
+
+    <button class="w drum">w</button>
+    <button class="a drum">a</button>
+    <button class="s drum">s</button>
+    <button class="d drum">d</button>
+    <button class="j drum">j</button>
+    <button class="k drum">k</button>
+    <button class="i drum">i</button>
+
+  </div>
+
+<script>
+const buttons = document.querySelectorAll(".drum");
+
+// CLICK
+buttons.forEach(btn => {
+  btn.addEventListener("click", function () {
+    playSound(this.innerText);
+    animate(this.innerText);
+  });
+});
+
+
+document.addEventListener("keydown", function (event) {
+  playSound(event.key);
+  animate(event.key);
+});
+
+
+function playSound(key) {
+  let audio;
+
+  switch (key) {
+    case "w": audio = new Audio("/Ton1.wav"); break;
+    case "a": audio = new Audio("/Ton2.wav"); break;
+    case "s": audio = new Audio("/Ton3.wav"); break;
+    case "d": audio = new Audio("/Ton4.wav"); break;
+    case "j": audio = new Audio("/snare5.wav"); break;
+    case "k": audio = new Audio("/crash6.wav"); break;
+    case "i": audio = new Audio("/kick-bass7.wav"); break;
+  }
+
+  if (audio) audio.play();
+}
+
+
+function animate(key) {
+  const active = document.querySelector("." + key);
+  if (!active) return;
+
+  active.classList.add("pressed");
+  setTimeout(() => active.classList.remove("pressed"), 150);
+}
+</script>
+
+</body>
+</html>
